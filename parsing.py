@@ -1,8 +1,7 @@
-# generate_100_films.py
+
 import pandas as pd
 
 movies_data = [
-    # Название, год, рейтинг, happy, action, weird
     ["Побег из Шоушенка", 1994, 9.3, 2, 2, 1],
     ["Крёстный отец", 1972, 9.2, 1, 5, 2],
     ["Крёстный отец 2", 1974, 9.0, 1, 5, 2],
@@ -97,34 +96,16 @@ movies_data = [
 
 print(f"Сгенерировано {len(films_data)} фильмов")
 
-# Добавляем ещё немного для ровного счёта
 while len(films_data) < 100:
     films_data.append(["Неизвестный фильм", 2000, 5.0, 5, 5, 5])
 
-# Создаём DataFrame
+
 df = pd.DataFrame(
     films_data, columns=["title", "year", "rating", "happy", "action", "weird"]
 )
 
-# Убираем дубликаты и сортируем по рейтингу
+
 df = df.drop_duplicates(subset=["title"])
 df = df.sort_values("rating", ascending=False)
 
-# Сохраняем в CSV
 df.to_csv("data/films.csv", index=False, encoding="utf-8")
-
-print(f"\nСохранено {len(df)} уникальных фильмов в data/films.csv")
-print("\nПервые 10 фильмов по рейтингу:")
-print(df[["title", "year", "rating"]].head(10))
-
-# Статистика по шкалам
-print("\nСтатистика по шкалам настроения:")
-print(
-    f"Весёлость (happy): среднее {df['happy'].mean():.1f}, от {df['happy'].min()} до {df['happy'].max()}"
-)
-print(
-    f"Экшен (action): среднее {df['action'].mean():.1f}, от {df['action'].min()} до {df['action'].max()}"
-)
-print(
-    f"Странность (weird): среднее {df['weird'].mean():.1f}, от {df['weird'].min()} до {df['weird'].max()}"
-)
