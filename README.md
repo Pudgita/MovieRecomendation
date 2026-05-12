@@ -56,3 +56,10 @@ python manage.py runserver
 ``` 
 ---
 
+<h3>Заполненые поля</h3>
+<img width="1773" height="1175" alt="image" src="https://github.com/user-attachments/assets/84bda4cd-c72d-452c-ab01-d3dd8b360990" />
+
+<h3>Пример выполнения</h3>
+<img width="1710" height="328" alt="image" src="https://github.com/user-attachments/assets/82dbf230-a868-4707-a9de-de8ce598dcd6" />
+
+
